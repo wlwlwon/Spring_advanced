@@ -20,7 +20,7 @@ public class OrderControllerV3 {
         TraceStatus st = null;
          try {
              st = trace.begin("OrderController.request()");
-             orderService.orderItem(st.getTraceId(),itemId);
+             orderService.orderItem(itemId);
              trace.end(st);
              return "ok";
          }catch (Exception e){

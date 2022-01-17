@@ -41,6 +41,7 @@ public class ThreadLocalLogTrace implements LogTrace{
     public void exception(TraceStatus status, Exception e) {
         complete(status, e);
     }
+
     private void complete(TraceStatus status, Exception e) {
         Long stopTimeMs = System.currentTimeMillis();
         long resultTimeMs = stopTimeMs - status.getStartTimeMs();
