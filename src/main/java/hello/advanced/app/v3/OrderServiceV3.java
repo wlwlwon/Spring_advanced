@@ -14,13 +14,13 @@ public class OrderServiceV3 {
     private final OrderRepositoryV3 orderRepository;
     private final LogTrace trace;
 
-    public void orderItem(TraceId traceId, String itemId) {
+    public void orderItem(String itemId) {
 
 
         TraceStatus st = null;
         try {
             st = trace.begin("OrderService.orderItem()");
-            orderRepository.save(st.getTraceId(), itemId);
+            orderRepository.save(itemId);
             trace.end(st);
         }catch (Exception e){
             trace.exception(st,e);
